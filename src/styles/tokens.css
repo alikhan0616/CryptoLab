@@ -1,0 +1,14 @@
+/* Design tokens (PLAN.md Section 4). Light theme only (Section 1A). */
+:root {
+  --paper: #F7F5F0;
+  --panel: #FFFFFF;
+  --ink: #14171C;
+  --muted: #5F646C;
+  --line: #DDD8CE;
+  --symmetric: #0F766E;
+  --asymmetric: #C2410C;
+  --keyless: #4338CA;
+  --ok: #15803D;
+  --bad: #B91C1C;
+  --highlight: #FDE68A;
+}

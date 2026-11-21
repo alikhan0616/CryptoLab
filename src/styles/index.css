@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme {
+  --color-paper: var(--paper);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-sym: var(--symmetric);
+  --color-asym: var(--asymmetric);
+  --color-keyless: var(--keyless);
+  --color-ok: var(--ok);
+  --color-bad: var(--bad);
+  --color-hl: var(--highlight);
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Base size 18px; presenter mode scales everything by 1.25x via rem. */
+/* --k is the screen scale factor set by src/scale.ts (1 up to 1440x810, larger above). */
+html { font-size: calc(18px * var(--k, 1)); }
+html.presenter { font-size: calc(22.5px * var(--k, 1)); }
+/* Icons are sized in px by lucide-react; scale them with the screen too. */
+svg.lucide { zoom: var(--k, 1); }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+@layer components {
+  .btn-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 4px; color: var(--ink);
+  }
+  .btn-icon:hover:not(:disabled) { background: color-mix(in srgb, var(--line) 60%, transparent); }
+  .btn-icon:disabled { opacity: 0.35; cursor: not-allowed; }
+}

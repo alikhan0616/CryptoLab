@@ -1,0 +1,7 @@
+node_modules
+dist
+.vercel
+.netlify
+.playwright-mcp
+*.log
+.DS_Store
