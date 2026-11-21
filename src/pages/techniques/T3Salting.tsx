@@ -87,9 +87,9 @@ function SaltingDemo() {
         </div>
       )}
 
-      <Block title="User database (what an attacker steals)" right={rows.loading ? <span className="text-[0.85rem] text-muted">working...</span> : mode === 'pbkdf2' ? <span className="font-mono text-[0.82rem] text-muted">{rows.value?.msPerHash.toFixed(1)} ms per hash</span> : null}>
+      <Block title="User database (what an attacker steals)" right={rows.loading ? <span className="text-[0.875rem] text-muted">working...</span> : mode === 'pbkdf2' ? <span className="font-mono text-[0.875rem] text-muted">{rows.value?.msPerHash.toFixed(1)} ms per hash</span> : null}>
         <div className="overflow-x-auto">
-          <table className="w-full text-[0.85rem]">
+          <table className="w-full text-[0.875rem]">
             <thead><tr className="border-b-2 border-ink text-left"><th className="py-1 pr-2">User</th><th className="py-1 pr-2">Salt</th><th className="py-1">Stored value</th></tr></thead>
             <tbody>
               {users.map((u, i) => {
@@ -97,11 +97,11 @@ function SaltingDemo() {
                 const dup = v !== undefined && values.filter((x) => x === v).length > 1
                 return (
                   <tr key={i} className={`border-b border-line align-top ${dup ? 'bg-bad/10' : ''}`}>
-                    <td className="py-1 pr-2">{u.name}<div className="font-mono text-[0.78rem] text-muted">{u.password}</div></td>
-                    <td className="py-1 pr-2 font-mono text-[0.78rem] break-all">{mode === 'none' ? <span className="text-muted">(none)</span> : bytesToHex(saltFor(u)).slice(0, 16) + (bytesToHex(saltFor(u)).length > 16 ? '…' : '')}</td>
-                    <td className={`py-1 font-mono text-[0.78rem] break-all ${dup ? 'text-bad' : ''}`}>
+                    <td className="py-1 pr-2">{u.name}<div className="font-mono text-[0.875rem] text-muted">{u.password}</div></td>
+                    <td className="py-1 pr-2 font-mono text-[0.875rem] break-all">{mode === 'none' ? <span className="text-muted">(none)</span> : bytesToHex(saltFor(u)).slice(0, 16) + (bytesToHex(saltFor(u)).length > 16 ? '…' : '')}</td>
+                    <td className={`py-1 font-mono text-[0.875rem] break-all ${dup ? 'text-bad' : ''}`}>
                       {v ? v.slice(0, 32) + '…' : '...'}
-                      {dup && firstWith(v) !== i && <div className="font-sans text-[0.8rem]">Same as {users[firstWith(v)].name}!</div>}
+                      {dup && firstWith(v) !== i && <div className="font-sans text-[0.875rem]">Same as {users[firstWith(v)].name}!</div>}
                     </td>
                   </tr>
                 )
@@ -146,8 +146,8 @@ function HowRender({ s }: { s: number }) {
   const login = s >= 4
   const box = (on: boolean, label: string, value: ReactNode, tone = 'var(--keyless)') => (
     <div className={`flex min-w-0 flex-1 flex-col rounded border-2 p-2.5 transition-opacity ${on ? 'opacity-100' : 'opacity-30'}`} style={{ borderColor: on ? tone : 'var(--line)' }}>
-      <span className="text-[0.78rem] font-semibold uppercase tracking-wide text-muted">{label}</span>
-      <span className="mt-1 break-all font-mono text-[0.85rem]">{value}</span>
+      <span className="text-[0.875rem] font-semibold uppercase tracking-wide text-muted">{label}</span>
+      <span className="mt-1 break-all font-mono text-[0.875rem]">{value}</span>
     </div>
   )
   return (

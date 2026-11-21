@@ -73,7 +73,7 @@ function AesDemo() {
         <Button onClick={() => setIvHex(bytesToHex(randomBytes(ivLength(mode))))}><Dices size={15} /> New</Button>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-[0.8rem] text-muted">Ciphertext {r.value && `(${r.value.ct.length} bytes${mode === 'GCM' ? ', including a 16-byte authentication tag' : ''})`}</span>
+        <span className="text-[0.875rem] text-muted">Ciphertext {r.value && `(${r.value.ct.length} bytes${mode === 'GCM' ? ', including a 16-byte authentication tag' : ''})`}</span>
         <SegmentedControl label="Output format" value={fmt} onChange={setFmt} options={[{ value: 'base64', label: 'Base64' }, { value: 'hex', label: 'Hex' }]} />
       </div>
       <DataBox tone={r.error ? 'bad' : undefined}>{r.error ?? (r.value ? (fmt === 'hex' ? bytesToHex(r.value.ct) : bytesToBase64(r.value.ct)) : '...')}</DataBox>
@@ -98,15 +98,15 @@ function AesDemo() {
           <div className="flex flex-col gap-1">
             {Array.from({ length: padded.length / 16 }, (_, b) => (
               <div key={b} className="flex items-center gap-1">
-                <span className="w-16 text-[0.78rem] text-muted">Block {b + 1}</span>
+                <span className="w-16 text-[0.875rem] text-muted">Block {b + 1}</span>
                 {Array.from(padded.slice(b * 16, b * 16 + 16)).map((x, i) => {
                   const pad = b * 16 + i >= p.length
-                  return <span key={i} className={`w-[1.6rem] rounded-sm text-center font-mono text-[0.78rem] ${pad ? 'bg-hl font-semibold' : 'bg-paper'}`}>{x.toString(16).padStart(2, '0')}</span>
+                  return <span key={i} className={`w-[1.6rem] rounded-sm text-center font-mono text-[0.875rem] ${pad ? 'bg-hl font-semibold' : 'bg-paper'}`}>{x.toString(16).padStart(2, '0')}</span>
                 })}
               </div>
             ))}
           </div>
-          <p className="text-[0.85rem] text-muted">Highlighted: <b>padding</b> (PKCS#7). {padLen} bytes, each with the value {padLen}, fill the last block.</p>
+          <p className="text-[0.875rem] text-muted">Highlighted: <b>padding</b> (PKCS#7). {padLen} bytes, each with the value {padLen}, fill the last block.</p>
         </Block>
       )}
     </>
@@ -170,7 +170,7 @@ function HowRender({ s }: { s: number }) {
       {s > 0 && <><Grid s={STATES[s - 1]} /><span className="text-[1.5rem] text-muted">→</span></>}
       <Grid s={STATES[s]} changed={s > 0 && s !== 3} hlRow={s === 3} />
       {(s === 1 || s === 5) && (
-        <div className="flex flex-col items-center gap-1 text-[0.8rem] text-muted">
+        <div className="flex flex-col items-center gap-1 text-[0.875rem] text-muted">
           <span>round key {s === 1 ? 0 : 1}</span>
           <Grid s={roundKey(s === 1 ? 0 : 1)} />
         </div>
@@ -210,7 +210,7 @@ export default function T6Aes() {
           observe="the script prints a ciphertext token, then the original message after decryption. Without the key, the token cannot be decrypted."
         >
           <p className="mb-2 text-[0.9rem]">A typical <span className="font-mono">symmetric_demo.py</span> uses Python's <b>Fernet</b>, which is AES-128 in CBC mode plus an HMAC-SHA256 tag (so changes are detected, like GCM):</p>
-          <pre className="overflow-x-auto rounded bg-paper px-3 py-2 font-mono text-[0.82rem] leading-relaxed">{FERNET}</pre>
+          <pre className="overflow-x-auto rounded bg-paper px-3 py-2 font-mono text-[0.875rem] leading-relaxed">{FERNET}</pre>
         </LabBox>
       }
     />

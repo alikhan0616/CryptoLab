@@ -56,9 +56,9 @@ export default function P1ChooseTool() {
           onClick={(e) => e.stopPropagation()}
           onChange={(e) => setNotes((n) => ({ ...n, [c.id]: e.target.value }))}
           placeholder="Justify your choice in one sentence (optional)"
-          className="mt-1.5 w-full rounded border border-line bg-paper px-2 py-1 text-[0.82rem] focus:border-ink focus:outline-none"
+          className="mt-1.5 w-full rounded border border-line bg-paper px-2 py-1 text-[0.875rem] focus:border-ink focus:outline-none"
         />
-        {revealed && !right && <div className="mt-1 text-[0.85rem]"><b>Answer:</b> {BUCKETS.find((b) => b.id === c.answer)!.label}. {c.why}</div>}
+        {revealed && !right && <div className="mt-1 text-[0.875rem]"><b>Answer:</b> {BUCKETS.find((b) => b.id === c.answer)!.label}. {c.why}</div>}
       </div>
     )
   }
@@ -81,7 +81,7 @@ export default function P1ChooseTool() {
         onClick={() => selected && place(selected, undefined)}
         className="mb-4 min-h-[4rem] rounded border border-dashed border-line p-2"
       >
-        <div className="mb-1.5 text-[0.8rem] text-muted">Scenarios to sort ({unplaced.length} left)</div>
+        <div className="mb-1.5 text-[0.875rem] text-muted">Scenarios to sort ({unplaced.length} left)</div>
         <div className="grid grid-cols-2 gap-2" onClick={(e) => e.stopPropagation()}>{unplaced.map(card)}</div>
       </div>
 
@@ -97,7 +97,7 @@ export default function P1ChooseTool() {
           >
             <div className="flex items-center justify-between">
               <span className="font-serif text-[1.1rem] font-semibold" style={{ color: b.color }}>{b.label}</span>
-              {revealed && <Link to={b.link} onClick={(e) => e.stopPropagation()} className="text-[0.8rem] underline">see demo</Link>}
+              {revealed && <Link to={b.link} onClick={(e) => e.stopPropagation()} className="text-[0.875rem] underline">see demo</Link>}
             </div>
             <div className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>{CARDS.filter((c) => placed[c.id] === b.id).map(card)}</div>
           </div>

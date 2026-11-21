@@ -30,7 +30,7 @@ function Box({ term, active, children, tone }: { term: string; active: boolean; 
       animate={{ scale: active ? 1.03 : 1 }}
       className={`flex min-h-[5.5rem] min-w-0 flex-1 flex-col rounded border-2 p-2.5 transition-colors ${active ? 'border-ink bg-hl/50' : 'border-line bg-panel'}`}
     >
-      <div className="text-[0.78rem] font-semibold uppercase tracking-wide text-muted">{term}</div>
+      <div className="text-[0.875rem] font-semibold uppercase tracking-wide text-muted">{term}</div>
       <div className={`mt-1 font-mono text-[0.9rem] leading-snug [overflow-wrap:anywhere] ${tone === 'ok' ? 'text-ok' : tone === 'bad' ? 'text-bad' : ''}`}>{children}</div>
     </motion.div>
   )
@@ -79,7 +79,7 @@ export default function F2Pipeline() {
             <KeyChip kind="shared" label={keyLabel} />
           </motion.div>
           <Box term="Encrypt" active={s === 1 || s === 3}>
-            <span className="font-sans text-[0.85rem]">
+            <span className="font-sans text-[0.875rem]">
               <span className="text-muted">Algorithm: </span>
               {algo === 'caesar' ? 'Caesar, shift letters forward' : 'AES-128-GCM'}
             </span>
@@ -93,25 +93,25 @@ export default function F2Pipeline() {
             <KeyChip kind="shared" label={wrongKey ? `Wrong! ${wrongLabel}` : keyLabel} />
           </motion.div>
           <Box term="Decrypt" active={s === 4}>
-            <span className="font-sans text-[0.85rem]"><span className="text-muted">Same algorithm, run </span>backwards</span>
+            <span className="font-sans text-[0.875rem]"><span className="text-muted">Same algorithm, run </span>backwards</span>
           </Box>
         </div>
         <Arrow />
-        <Box term="Plaintext again" active={s === 4} tone={s >= 4 ? backTone : undefined}>{s >= 4 ? (backFailed ? <span className="font-sans text-[0.85rem]">{back}</span> : back) : '?'}</Box>
+        <Box term="Plaintext again" active={s === 4} tone={s >= 4 ? backTone : undefined}>{s >= 4 ? (backFailed ? <span className="font-sans text-[0.875rem]">{back}</span> : back) : '?'}</Box>
       </div>
 
       {/* Key space and cryptanalysis strip */}
       <motion.div initial={false} animate={{ opacity: s >= 5 ? 1 : 0.25 }} className="mt-5 border-t border-line pt-3">
         {algo === 'caesar' ? (
           <>
-            <div className="mb-2 text-[0.85rem]"><b>Key space:</b> 25 useful shifts (shift 0 and 26 change nothing).{s >= 6 && <> <b>Cryptanalysis:</b> Eve decrypts with all 25 and spots the readable one.</>}</div>
+            <div className="mb-2 text-[0.875rem]"><b>Key space:</b> 25 useful shifts (shift 0 and 26 change nothing).{s >= 6 && <> <b>Cryptanalysis:</b> Eve decrypts with all 25 and spots the readable one.</>}</div>
             <div className="grid grid-cols-[repeat(13,minmax(0,1fr))] gap-1">
               {Array.from({ length: 25 }, (_, i) => i + 1).map((key) => {
                 const hit = s >= 6 && key === k
                 return (
                   <div key={key} className={`rounded border px-1 py-0.5 text-center ${hit ? 'border-ok bg-ok/10' : 'border-line bg-paper'}`}>
-                    <div className="font-mono text-[0.78rem] text-muted">{key}</div>
-                    <div className={`truncate font-mono text-[0.78rem] ${hit ? 'font-semibold text-ok' : ''}`}>{s >= 6 ? caesarDecrypt(caesarCt, key) : ''}</div>
+                    <div className="font-mono text-[0.875rem] text-muted">{key}</div>
+                    <div className={`truncate font-mono text-[0.875rem] ${hit ? 'font-semibold text-ok' : ''}`}>{s >= 6 ? caesarDecrypt(caesarCt, key) : ''}</div>
                   </div>
                 )
               })}
@@ -132,7 +132,7 @@ export default function F2Pipeline() {
       <PageHeader subtitle="The path every message takes, with the key terms labelled on it. Running example: Caesar, shift 3." />
       <div className="mb-4 flex flex-wrap items-end gap-5">
         <TextField label="Plaintext" value={plaintext} onChange={setPlaintext} mono maxLength={40} width="13rem" />
-        <div className="flex flex-col gap-1 text-[0.8rem] text-muted">
+        <div className="flex flex-col gap-1 text-[0.875rem] text-muted">
           Algorithm
           <SegmentedControl label="Algorithm" value={algo} onChange={setAlgo} options={[{ value: 'caesar', label: 'Caesar' }, { value: 'aes', label: 'AES-GCM' }]} />
         </div>

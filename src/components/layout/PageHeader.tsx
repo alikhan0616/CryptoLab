@@ -9,7 +9,7 @@ export function PageHeader({ subtitle }: { subtitle?: string }) {
   if (!page) return null
   return (
     <header className="mb-5 border-b border-line pb-3">
-      <div className="mb-1 flex items-center gap-3 font-mono text-[0.8rem] text-muted">
+      <div className="mb-1 flex items-center gap-3 font-mono text-[0.875rem] text-muted">
         <span>{page.code}</span>
         {page.category && (
           <span className="flex items-center gap-1.5">

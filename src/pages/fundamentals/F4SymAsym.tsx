@@ -34,7 +34,7 @@ function Crate({ lock, open, color }: { lock: boolean; open: boolean; color: str
           </span>
         )}
       </div>
-      <div className="mt-0.5 whitespace-nowrap font-mono text-[0.78rem]">{open ? 'Result: 82' : lock ? 'locked' : 'Result: 82'}</div>
+      <div className="mt-0.5 whitespace-nowrap font-mono text-[0.875rem]">{open ? 'Result: 82' : lock ? 'locked' : 'Result: 82'}</div>
     </div>
   )
 }
@@ -92,7 +92,7 @@ export default function F4SymAsym() {
             </div>
             <div className="flex flex-col items-center gap-1"><Actor who="Bob" size={46} /><KeyChip kind="shared" label="K" /></div>
           </div>
-          <div className={`mt-3 text-[0.85rem] transition-opacity ${s >= 2 ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`mt-3 text-[0.875rem] transition-opacity ${s >= 2 ? 'opacity-100' : 'opacity-0'}`}>
             <b className="text-bad">Key-sharing problem:</b> if K is sent as plaintext, Eve copies it and the confidentiality problem comes back.
           </div>
         </Scene>
@@ -110,12 +110,12 @@ export default function F4SymAsym() {
             <div className="flex flex-col items-center gap-1">
               <Actor who="Bob" size={46} />
               <KeyChip kind="private" label="Private" />
-              {s >= 5 && <span className="flex items-center gap-1 text-[0.8rem] text-ok"><Check size={14} /> opens it</span>}
+              {s >= 5 && <span className="flex items-center gap-1 text-[0.875rem] text-ok"><Check size={14} /> opens it</span>}
             </div>
           </div>
           <div className="mt-2 flex items-center gap-2">
             <Actor who="Eve" size={36} />
-            <div className="flex flex-col gap-1 text-[0.85rem]">
+            <div className="flex flex-col gap-1 text-[0.875rem]">
               <span className={s >= 3 ? '' : 'invisible'}><KeyChip kind="public" label="Bob's padlock" /></span>
               {s >= 5 && <span className="flex items-center gap-1 text-bad"><X size={14} /> A padlock cannot unlock the box</span>}
             </div>
@@ -155,12 +155,12 @@ export default function F4SymAsym() {
 
         <div className="border border-line bg-panel p-4">
           <div className="font-serif text-[1.05rem] font-semibold">Speed test: encrypt 100 KB</div>
-          <p className="mt-1 text-[0.85rem] text-muted">Real timings in this browser. RSA-2048 can only take 190 bytes at a time.</p>
+          <p className="mt-1 text-[0.875rem] text-muted">Real timings in this browser. RSA-2048 can only take 190 bytes at a time.</p>
           <Button variant="solid" className="mt-3" onClick={runRace} disabled={race === 'running'}>
             {race === 'running' ? 'Working...' : raceDone ? 'Run again' : 'Run speed test'}
           </Button>
           {raceDone && (
-            <div className="mt-3 flex flex-col gap-2 text-[0.85rem]">
+            <div className="mt-3 flex flex-col gap-2 text-[0.875rem]">
               {[['AES-GCM', raceDone.aes, teal, '1 operation'], ['RSA-OAEP', raceDone.rsa, orange, `${raceDone.pieces} pieces`]].map(([label, ms, color, note]) => (
                 <div key={label as string}>
                   <div className="flex justify-between"><span>{label as string} <span className="text-muted">({note as string})</span></span><span className="font-mono">{(ms as number).toFixed(1)} ms</span></div>

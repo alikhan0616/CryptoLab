@@ -14,7 +14,7 @@ export function BitGrid({ bytes, compare, label, cell = 9 }: { bytes: Uint8Array
           <span key={i} style={{ width: `${cell / 18}rem`, height: `${cell / 18}rem`, background: compare ? (b.diff ? 'var(--bad)' : 'var(--panel)') : b.on ? 'var(--keyless)' : 'var(--panel)' }} />
         ))}
       </div>
-      <figcaption className="text-[0.8rem] text-muted">{label}</figcaption>
+      <figcaption className="text-[0.875rem] text-muted">{label}</figcaption>
     </figure>
   )
 }

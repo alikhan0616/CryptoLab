@@ -51,7 +51,7 @@ function SignatureDemo() {
   return (
     <>
       <Block title="1. Alice signs">
-        <div className="flex flex-wrap items-center gap-2 text-[0.85rem]">
+        <div className="flex flex-wrap items-center gap-2 text-[0.875rem]">
           {alice ? <><KeyChip kind="private" label="Alice's private key" /><KeyChip kind="public" label="Alice's public key" fingerprint={alice.fp} /></> : <span className="text-muted">Generating Alice's RSA-2048 key pair...</span>}
         </div>
         <TextArea label="Message" value={message} onChange={setMessage} rows={2} />
@@ -65,7 +65,7 @@ function SignatureDemo() {
             <SegmentedControl label="Public key" value={who} onChange={setWho} options={[{ value: 'alice', label: "Alice's public key" }, { value: 'mallory', label: "Mallory's public key" }]} />
           </Field>
           {check.value !== undefined && check.value !== null && <Verdict ok={check.value}>{reason}</Verdict>}
-          <p className="text-[0.85rem] text-muted">Notice: the message itself was never hidden. Anyone could read it. A signature proves who signed and that nothing changed; it gives no confidentiality.</p>
+          <p className="text-[0.875rem] text-muted">Notice: the message itself was never hidden. Anyone could read it. A signature proves who signed and that nothing changed; it gives no confidentiality.</p>
         </Block>
       )}
     </>
@@ -100,7 +100,7 @@ function HowRender({ s }: { s: number }) {
     <div className="flex min-h-[14rem] flex-col gap-3 px-6 py-5">
       <div className="flex items-start justify-between gap-4">
         <div className="flex w-[13rem] flex-col items-center gap-1"><Actor who="Alice" size={44} /><KeyChip kind="private" label="Alice's private key" /></div>
-        <div className="flex min-w-0 flex-1 flex-col gap-1.5 font-mono text-[0.85rem]">
+        <div className="flex min-w-0 flex-1 flex-col gap-1.5 font-mono text-[0.875rem]">
           <div className={`rounded border-2 px-2 py-1 ${tampered ? 'border-bad bg-bad/10' : 'border-ink'}`}>Message: {shown}</div>
           {s >= 0 && <div className="truncate rounded border border-keyless px-2 py-1">SHA-256: {v.value.d1}</div>}
           {s >= 1 && <div className="truncate rounded border-2 border-asym px-2 py-1">Signature: {v.value.sig}</div>}
@@ -112,7 +112,7 @@ function HowRender({ s }: { s: number }) {
         {s >= 4 && <><Actor who="Mallory" size={36} /><span className="text-[0.9rem] text-bad">changed "82 (A-)" to "92 (A+)"</span></>}
       </div>
       {(s === 3 || s === 5) && (
-        <div className="flex flex-col gap-1 font-mono text-[0.85rem]">
+        <div className="flex flex-col gap-1 font-mono text-[0.875rem]">
           <span className="truncate">Bob's hash of what he received: {s === 3 ? v.value.d1 : v.value.d2}</span>
           <Verdict ok={s === 3 ? v.value.ok : v.value.bad}>{s === 3 ? 'Signature valid' : 'Signature invalid: the content was changed'}</Verdict>
         </div>

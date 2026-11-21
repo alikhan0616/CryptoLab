@@ -15,7 +15,7 @@ export function Callout({ kind, title, children }: { kind: Kind; title?: string;
   const { label, color, Icon } = STYLES[kind]
   return (
     <aside className="border-l-[3px] bg-panel py-3 pl-4 pr-4" style={{ borderColor: color }}>
-      <div className="mb-1 flex items-center gap-1.5 text-[0.78rem] font-semibold uppercase tracking-wide" style={{ color }}>
+      <div className="mb-1 flex items-center gap-1.5 text-[0.875rem] font-semibold uppercase tracking-wide" style={{ color }}>
         <Icon size={15} aria-hidden /> {title ?? label}
       </div>
       <div className="text-[0.95rem] leading-relaxed">{children}</div>

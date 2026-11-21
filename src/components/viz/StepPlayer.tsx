@@ -82,7 +82,7 @@ export function StepPlayer({ steps, render, step: controlled, onStep, autoMs = 2
       {/* Caption + controls stay pinned to the bottom of the screen so the presenter never loses them. */}
       <div ref={barRef} className="sticky bottom-0 z-10 bg-panel shadow-[0_-1px_0_var(--line)]">
       <div className="px-5 py-2.5">
-        <div className="mb-1 font-mono text-[0.78rem] text-muted">
+        <div className="mb-1 font-mono text-[0.875rem] text-muted">
           Step {step + 1} of {steps.length} · {cur.title}
         </div>
         <div className="min-h-[2.6em] text-[1.1rem] leading-snug" aria-live="polite">{cur.caption}</div>

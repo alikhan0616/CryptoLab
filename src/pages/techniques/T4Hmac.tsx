@@ -64,9 +64,9 @@ function MalloryAttack() {
   const col = (who: ReactNode, msg: string, check: string | undefined, label: string) => (
     <div className="flex min-w-0 flex-1 flex-col items-center gap-1.5">
       {who}
-      <div className="w-full rounded border border-line bg-paper p-2 text-[0.85rem]">
+      <div className="w-full rounded border border-line bg-paper p-2 text-[0.875rem]">
         <div>{msg}</div>
-        <div className="mt-1 break-all font-mono text-[0.78rem] text-muted">{label}: {check?.slice(0, 16)}…</div>
+        <div className="mt-1 break-all font-mono text-[0.875rem] text-muted">{label}: {check?.slice(0, 16)}…</div>
       </div>
     </div>
   )
@@ -119,8 +119,8 @@ function HowRender({ s }: { s: number }) {
   }, [])
   const row = (on: boolean, label: string, value: ReactNode, tone = 'var(--symmetric)') => (
     <div className={`grid grid-cols-[11rem_1fr] items-center gap-3 rounded border-2 px-3 py-1.5 transition-opacity ${on ? '' : 'opacity-25'}`} style={{ borderColor: on ? tone : 'var(--line)' }}>
-      <span className="text-[0.85rem] font-semibold">{label}</span>
-      <span className="min-w-0 font-mono text-[0.85rem] [overflow-wrap:anywhere]">{value}</span>
+      <span className="text-[0.875rem] font-semibold">{label}</span>
+      <span className="min-w-0 font-mono text-[0.875rem] [overflow-wrap:anywhere]">{value}</span>
     </div>
   )
   if (!v.value) return <div className="p-5">...</div>

@@ -68,20 +68,20 @@ function RealRsa() {
         <div className="flex flex-wrap items-center gap-3">
           <SegmentedControl label="Key size" value={String(bits)} onChange={(v) => setBits(+v as RsaBits)} options={[{ value: '1024', label: '1024 (demo only)' }, { value: '2048', label: '2048' }, { value: '4096', label: '4096' }]} />
           <Button variant="solid" onClick={() => generate(bits)} disabled={busy}>{busy ? 'Working...' : 'Generate keys'}</Button>
-          {keys && !busy && <span className="text-[0.85rem] text-muted">RSA-{keys.bits} made in {(keys.ms / 1000).toFixed(2)} s</span>}
+          {keys && !busy && <span className="text-[0.875rem] text-muted">RSA-{keys.bits} made in {(keys.ms / 1000).toFixed(2)} s</span>}
         </div>
         {keys && (
           <div className="grid grid-cols-2 gap-3">
             <div className="flex min-w-0 flex-col gap-1">
-              <div className="flex items-center justify-between"><KeyChip kind="public" label="public_key.pem" /><span className="text-[0.78rem] text-muted">may be shared</span></div>
-              <pre className="h-28 overflow-auto rounded border border-line bg-paper p-2 font-mono text-[0.78rem] leading-snug">{keys.pub}</pre>
+              <div className="flex items-center justify-between"><KeyChip kind="public" label="public_key.pem" /><span className="text-[0.875rem] text-muted">may be shared</span></div>
+              <pre className="h-28 overflow-auto rounded border border-line bg-paper p-2 font-mono text-[0.875rem] leading-snug">{keys.pub}</pre>
               <Button onClick={() => downloadFile('public_key.pem', keys.pub, 'application/x-pem-file')}><Download size={14} /> Download</Button>
             </div>
             <div className="flex min-w-0 flex-col gap-1">
-              <div className="flex items-center justify-between"><KeyChip kind="private" label="private_key.pem" /><span className="text-[0.78rem] text-bad">keep secret</span></div>
+              <div className="flex items-center justify-between"><KeyChip kind="private" label="private_key.pem" /><span className="text-[0.875rem] text-bad">keep secret</span></div>
               <div className="relative">
-                <pre className={`h-28 overflow-auto rounded border border-line bg-paper p-2 font-mono text-[0.78rem] leading-snug ${reveal ? '' : 'select-none blur-sm'}`}>{keys.priv}</pre>
-                {!reveal && <button onClick={() => setReveal(true)} className="absolute inset-0 m-auto flex h-9 w-28 items-center justify-center gap-1.5 rounded bg-ink text-[0.85rem] text-paper"><Eye size={15} /> Reveal</button>}
+                <pre className={`h-28 overflow-auto rounded border border-line bg-paper p-2 font-mono text-[0.875rem] leading-snug ${reveal ? '' : 'select-none blur-sm'}`}>{keys.priv}</pre>
+                {!reveal && <button onClick={() => setReveal(true)} className="absolute inset-0 m-auto flex h-9 w-28 items-center justify-center gap-1.5 rounded bg-ink text-[0.875rem] text-paper"><Eye size={15} /> Reveal</button>}
               </div>
               <Button onClick={() => downloadFile('private_key.pem', keys.priv, 'application/x-pem-file')}><Download size={14} /> Download</Button>
             </div>
@@ -99,7 +99,7 @@ function RealRsa() {
           <>
             <DataBox label={`Ciphertext (${enc.value.c1.length} bytes)`}>{bytesToBase64(enc.value.c1).slice(0, 120)}…</DataBox>
             <DataBox label="Same message encrypted again">{bytesToBase64(enc.value.c2).slice(0, 120)}…</DataBox>
-            <p className="text-[0.85rem] text-muted">Different every time: OAEP adds random padding, so Eve cannot spot repeated messages. <button className="underline" onClick={() => setRuns((n) => n + 1)}>Encrypt again</button></p>
+            <p className="text-[0.875rem] text-muted">Different every time: OAEP adds random padding, so Eve cannot spot repeated messages. <button className="underline" onClick={() => setRuns((n) => n + 1)}>Encrypt again</button></p>
           </>
         )}
       </Block>
@@ -143,7 +143,7 @@ function ToyRsa() {
       <Block title="Make the keys">
         <div className="flex flex-wrap items-end gap-3">
           {[['p', p, setP], ['q', q, setQ]].map(([label, val, set]) => (
-            <label key={label as string} className="flex flex-col gap-1 text-[0.8rem] text-muted">
+            <label key={label as string} className="flex flex-col gap-1 text-[0.875rem] text-muted">
               Prime {label as string}
               <input list="primes" value={val as string} onChange={(ev) => (set as (v: string) => void)(ev.target.value)} className="w-20 rounded border border-line bg-panel px-2 py-1 font-mono text-[0.95rem] text-ink" />
             </label>
@@ -161,9 +161,9 @@ function ToyRsa() {
           </div>
         )}
         {keys && (
-          <details className="text-[0.85rem]">
+          <details className="text-[0.875rem]">
             <summary className="cursor-pointer text-muted">How d was found (extended Euclidean algorithm, {keys.steps.length} steps)</summary>
-            <table className="mt-1 font-mono text-[0.8rem]">
+            <table className="mt-1 font-mono text-[0.875rem]">
               <tbody>{keys.steps.map((st, i) => <tr key={i}><td className="pr-3">{st.a.toString()} = {st.q.toString()} × {st.b.toString()} + {st.r.toString()}</td></tr>)}</tbody>
             </table>
             <p className="mt-1">Working back gives d = {keys.d.toString()}, because (e × d) mod φ = ({keys.e.toString()} × {keys.d.toString()}) mod {keys.phi.toString()} = {((keys.e * keys.d) % keys.phi).toString()}.</p>
@@ -180,13 +180,13 @@ function ToyRsa() {
             </div>
           )}
           <TextField label="Text mode: encrypt each letter's code separately" value={word} onChange={setWord} mono width="14rem" />
-          <div className="flex flex-wrap gap-1.5 font-mono text-[0.85rem]">
+          <div className="flex flex-wrap gap-1.5 font-mono text-[0.875rem]">
             {word.split('').map((ch, i) => {
               const code = BigInt(ch.charCodeAt(0))
               return <span key={i} className="rounded border border-line px-1.5 py-0.5">{ch}→{code < keys!.n ? toyEncrypt(code, keys!).toString() : '?'}</span>
             })}
           </div>
-          <p className="text-[0.85rem] text-bad">Warning: equal letters give equal numbers (look at the two L's). Real RSA adds random padding to stop this.</p>
+          <p className="text-[0.875rem] text-bad">Warning: equal letters give equal numbers (look at the two L's). Real RSA adds random padding to stop this.</p>
         </Block>
       )}
       {factors && (
@@ -218,7 +218,7 @@ function howRender(s: number) {
         </div>
         <div className="flex flex-1 flex-col items-center gap-2 pt-3">
           {s >= 2 && <div className="rounded border-2 border-asym px-3 py-1 font-mono text-[1rem]">m = {M.toString()} → c = {C.toString()}</div>}
-          {s >= 2 && <span className="text-[0.85rem] text-muted">c = m<sup>e</sup> mod n</span>}
+          {s >= 2 && <span className="text-[0.875rem] text-muted">c = m<sup>e</sup> mod n</span>}
         </div>
         <div className="flex flex-col items-center gap-1">
           <Actor who="Bob" size={46} />

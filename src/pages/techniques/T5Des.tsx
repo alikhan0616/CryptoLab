@@ -36,7 +36,7 @@ function DesDemo() {
       <div className="flex flex-wrap items-end gap-4">
         <Field label="Algorithm"><SegmentedControl label="Algorithm" value={algo} onChange={switchAlgo} options={[{ value: 'DES', label: 'DES' }, { value: '3DES', label: '3DES' }]} /></Field>
         <Field label="Mode"><SegmentedControl label="Mode" value={mode} onChange={setMode} options={[{ value: 'CBC', label: 'CBC' }, { value: 'ECB', label: 'ECB' }]} /></Field>
-        <span className="rounded border border-bad px-2 py-0.5 text-[0.82rem] font-semibold text-bad">
+        <span className="rounded border border-bad px-2 py-0.5 text-[0.875rem] font-semibold text-bad">
           {algo === 'DES' ? '56-bit key: broken by brute force' : 'Retired by NIST for new encryption'}
         </span>
       </div>
@@ -51,16 +51,16 @@ function DesDemo() {
           <Button onClick={() => setIv(rnd(8))}><Dices size={15} /> New IV</Button>
         </div>
       ) : (
-        <p className="text-[0.85rem] text-asym">ECB encrypts each 8-byte block on its own, so identical blocks give identical ciphertext. Teaching only.</p>
+        <p className="text-[0.875rem] text-asym">ECB encrypts each 8-byte block on its own, so identical blocks give identical ciphertext. Teaching only.</p>
       )}
       <div className="flex items-center justify-between">
-        <span className="text-[0.8rem] text-muted">Ciphertext</span>
+        <span className="text-[0.875rem] text-muted">Ciphertext</span>
         <SegmentedControl label="Output format" value={fmt} onChange={setFmt} options={[{ value: 'hex', label: 'Hex' }, { value: 'base64', label: 'Base64' }]} />
       </div>
       <DataBox tone={enc.error ? 'bad' : undefined}>{enc.error ?? shown}</DataBox>
 
       <Block title="Decrypt" right={<Toggle label="Use a wrong key" checked={wrongKey} onChange={setWrongKey} />}>
-        {wrongKey && <p className="font-mono text-[0.8rem] text-muted break-all">Decrypting with {decKey}</p>}
+        {wrongKey && <p className="font-mono text-[0.875rem] text-muted break-all">Decrypting with {decKey}</p>}
         {dec && <DataBox tone={dec.error ? 'bad' : 'ok'}>{dec.error ?? dec.value}</DataBox>}
       </Block>
     </>
@@ -93,7 +93,7 @@ const HOW_STEPS: Step[] = [
 function Half({ label, value, hl, tone = 'var(--symmetric)' }: { label: string; value: string; hl?: boolean; tone?: string }) {
   return (
     <div className={`flex flex-col items-center rounded border-2 px-3 py-1.5 ${hl ? 'bg-hl/60' : ''}`} style={{ borderColor: tone }}>
-      <span className="text-[0.78rem] text-muted">{label}</span>
+      <span className="text-[0.875rem] text-muted">{label}</span>
       <span className="font-mono text-[1rem]">{value}</span>
     </div>
   )
@@ -135,8 +135,8 @@ function howRender(s: number): ReactNode {
       )}
       {s === 4 && (
         <div className="flex flex-col items-center gap-2">
-          <div className="flex gap-1">{Array.from({ length: 16 }, (_, i) => <span key={i} className="flex h-8 w-8 items-center justify-center rounded border-2 border-sym font-mono text-[0.8rem]">{i + 1}</span>)}</div>
-          <span className="text-[0.85rem] text-muted">split → mix → swap, 16 times</span>
+          <div className="flex gap-1">{Array.from({ length: 16 }, (_, i) => <span key={i} className="flex h-8 w-8 items-center justify-center rounded border-2 border-sym font-mono text-[0.875rem]">{i + 1}</span>)}</div>
+          <span className="text-[0.875rem] text-muted">split → mix → swap, 16 times</span>
         </div>
       )}
       {s === 5 && <Chain items={[['Block', BLOCK, 'var(--ink)'], [`DES, key ${KEY}`, desBlock(KEY, BLOCK).toUpperCase(), 'var(--symmetric)']]} />}
@@ -179,7 +179,7 @@ export default function T5Des() {
                 <div className="h-3 bg-line"><div className="h-3 bg-sym" style={{ width: `${((bits as number) / 128) * 100}%` }} /></div>
               </div>
             ))}
-            <p className="mt-1 text-[0.85rem] text-muted">Bar length is the number of key bits (a log scale). Each extra bit doubles the number of keys: AES-128 has 2<sup>72</sup> times more keys than DES.</p>
+            <p className="mt-1 text-[0.875rem] text-muted">Bar length is the number of key bits (a log scale). Each extra bit doubles the number of keys: AES-128 has 2<sup>72</sup> times more keys than DES.</p>
           </section>
           <section>
             <h2 className="mb-2 text-[1.15rem]">Timeline</h2>

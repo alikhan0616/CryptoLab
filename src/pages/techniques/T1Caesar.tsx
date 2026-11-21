@@ -27,7 +27,7 @@ function CaesarDemo() {
   return (
     <>
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-[0.8rem] text-muted">Presets:</span>
+        <span className="text-[0.875rem] text-muted">Presets:</span>
         <Button onClick={() => preset('HELLO', 3)}>HELLO +3</Button>
         <Button onClick={() => preset('CYBER', 2)}>CYBER +2</Button>
         <Button onClick={() => preset('Hello, World!', 13)}>ROT13</Button>
@@ -44,11 +44,11 @@ function CaesarDemo() {
             <Field label={`Key (shift): ${k}`}>
               <input type="range" min={0} max={25} value={k} onChange={(e) => setKeyText(e.target.value)} className="w-56 accent-[var(--symmetric)]" aria-label="Key slider" />
             </Field>
-            <label className="flex flex-col gap-1 text-[0.8rem] text-muted">
+            <label className="flex flex-col gap-1 text-[0.875rem] text-muted">
               Any number
               <input value={keyText} onChange={(e) => setKeyText(e.target.value)} className="w-20 rounded border border-line bg-panel px-2 py-1 font-mono text-[0.95rem] text-ink" aria-label="Key number" />
             </label>
-            {raw !== k && !Number.isNaN(raw) && <span className="pb-1.5 text-[0.85rem] text-muted">{raw} wraps round to {k} (mod 26)</span>}
+            {raw !== k && !Number.isNaN(raw) && <span className="pb-1.5 text-[0.875rem] text-muted">{raw} wraps round to {k} (mod 26)</span>}
           </div>
           <div className="flex flex-wrap gap-5">
             <Toggle label="Keep spaces and punctuation" checked={keepOther} onChange={setKeepOther} />
@@ -58,26 +58,26 @@ function CaesarDemo() {
 
           <Block title="Alphabet strip">
             <div>
-              <div className="grid grid-cols-[repeat(26,minmax(0,1fr))] gap-px font-mono text-[0.85rem]">
+              <div className="grid grid-cols-[repeat(26,minmax(0,1fr))] gap-px font-mono text-[0.875rem]">
                 {A.split('').map((c, i) => {
                   const shifted = A[mod(i + (mode === 'decrypt' ? -k : k), 26)]
                   const hl = used.has(c)
                   return (
                     <div key={c} className={`flex flex-col items-center rounded-sm py-0.5 ${hl ? 'bg-hl' : ''}`}>
-                      <span>{c}</span><span className="text-[0.78rem] text-muted">↓</span><span className="font-semibold text-sym">{shifted}</span>
+                      <span>{c}</span><span className="text-[0.875rem] text-muted">↓</span><span className="font-semibold text-sym">{shifted}</span>
                     </div>
                   )
                 })}
               </div>
             </div>
-            <p className="text-[0.85rem] text-muted">Top row: {mode === 'decrypt' ? 'ciphertext' : 'plain'} letters. Bottom row: what each becomes. Letters in your text are highlighted.</p>
+            <p className="text-[0.875rem] text-muted">Top row: {mode === 'decrypt' ? 'ciphertext' : 'plain'} letters. Bottom row: what each becomes. Letters in your text are highlighted.</p>
           </Block>
         </>
       ) : (
         <Block title="Try all 25 shifts">
           <p className="text-[0.9rem]">Each row is a real decryption. The score measures how far the letter counts are from normal English (lower = more English-like). The best row is highlighted.</p>
           <div className="max-h-[22rem] overflow-y-auto border border-line">
-            <table className="w-full text-[0.85rem]">
+            <table className="w-full text-[0.875rem]">
               <thead className="sticky top-0 bg-paper">
                 <tr className="text-left"><th className="px-2 py-1">Key</th><th className="px-2 py-1">Decryption</th><th className="px-2 py-1 text-right">Score</th></tr>
               </thead>
@@ -124,12 +124,12 @@ function howRender(s: number) {
           return (
             <div key={i} className="flex flex-col items-center gap-1">
               <span className={`flex h-12 w-12 items-center justify-center rounded border-2 font-mono text-[1.4rem] ${active ? 'border-ink bg-hl' : 'border-line'}`}>{c}</span>
-              <span className="font-mono text-[0.8rem] text-muted">{A.indexOf(c)}</span>
+              <span className="font-mono text-[0.875rem] text-muted">{A.indexOf(c)}</span>
               <span className="text-muted">↓ +3</span>
               <span className={`flex h-12 w-12 items-center justify-center rounded border-2 font-mono text-[1.4rem] ${done ? 'border-sym text-sym' : 'border-dashed border-line text-transparent'}`}>
                 {A[(A.indexOf(c) + KEY) % 26]}
               </span>
-              <span className="font-mono text-[0.8rem] text-muted">{done ? (A.indexOf(c) + KEY) % 26 : ''}</span>
+              <span className="font-mono text-[0.875rem] text-muted">{done ? (A.indexOf(c) + KEY) % 26 : ''}</span>
             </div>
           )
         })}

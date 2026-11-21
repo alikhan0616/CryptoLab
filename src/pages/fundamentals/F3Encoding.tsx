@@ -40,7 +40,7 @@ function Lane({ title, color, active, children }: { title: string; color: string
 
 function EveResult({ ok, children }: { ok: boolean; children: ReactNode }) {
   return (
-    <div className={`rounded border px-2.5 py-1.5 text-[0.85rem] ${ok ? 'border-bad bg-bad/10' : 'border-ok bg-ok/10'}`}>
+    <div className={`rounded border px-2.5 py-1.5 text-[0.875rem] ${ok ? 'border-bad bg-bad/10' : 'border-ok bg-ok/10'}`}>
       <span className="font-semibold">{ok ? 'Eve succeeds: ' : 'Eve fails: '}</span>{children}
     </div>
   )
@@ -76,7 +76,7 @@ export default function F3Encoding() {
     if (n === 0) setTried([false, false, false])
   }
 
-  const out = 'break-all rounded border border-line bg-paper px-2.5 py-1.5 font-mono text-[0.85rem] leading-snug min-h-[3rem]'
+  const out = 'break-all rounded border border-line bg-paper px-2.5 py-1.5 font-mono text-[0.875rem] leading-snug min-h-[3rem]'
 
   const scene = (s: number) => (
     <div className="grid grid-cols-3 gap-4 p-4">
@@ -84,14 +84,14 @@ export default function F3Encoding() {
         <SegmentedControl label="Encoding" value={enc} onChange={setEnc} options={[
           { value: 'base64', label: 'Base64' }, { value: 'hex', label: 'Hex' }, { value: 'binary', label: 'Binary' }, { value: 'url', label: 'URL' },
         ]} />
-        <div className="text-[0.8rem] text-muted">No key</div>
+        <div className="text-[0.875rem] text-muted">No key</div>
         <div className={`${out} max-h-[7rem] overflow-y-auto`}>{encoded}</div>
         <Button onClick={() => tryLane(0)}>Eve: Decode</Button>
         {show(0) && <EveResult ok>{(() => { try { return <>"{decode(encoded, enc)}"</> } catch { return '?' } })()}</EveResult>}
       </Lane>
 
       <Lane title="Encryption" color="var(--symmetric)" active={s === 0 || s === 2 || s === 4}>
-        <div className="text-[0.8rem] text-muted">AES-GCM</div>
+        <div className="text-[0.875rem] text-muted">AES-GCM</div>
         <div><KeyChip kind="shared" label="Needs a key" /></div>
         <div className={out}>{crypto.value?.ct}</div>
         <Button onClick={() => tryLane(1)}>Eve: Decrypt without the key</Button>
@@ -99,8 +99,8 @@ export default function F3Encoding() {
       </Lane>
 
       <Lane title="Hashing" color="var(--keyless)" active={s === 0 || s === 3 || s === 4}>
-        <div className="text-[0.8rem] text-muted">SHA-256</div>
-        <div className="text-[0.8rem] text-muted">No key · always 64 hex characters ({hash.value?.length ?? 0} here)</div>
+        <div className="text-[0.875rem] text-muted">SHA-256</div>
+        <div className="text-[0.875rem] text-muted">No key · always 64 hex characters ({hash.value?.length ?? 0} here)</div>
         <div className={out}>{hash.value}</div>
         <motion.div key={shake} animate={shake ? { x: [0, -10, 10, -8, 8, -4, 0] } : {}} transition={{ duration: 0.45 }}>
           <Button className="w-full justify-center" onClick={() => tryLane(2)}>Eve: Reverse</Button>

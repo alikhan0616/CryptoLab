@@ -19,11 +19,11 @@
 }
 
 /* Base size 18px; presenter mode scales everything by 1.25x via rem. */
-/* --k is the screen scale factor set by src/scale.ts (1 up to 1440x810, larger above). */
-html { font-size: calc(18px * var(--k, 1)); }
-html.presenter { font-size: calc(22.5px * var(--k, 1)); }
-/* Icons are sized in px by lucide-react; scale them with the screen too. */
-svg.lucide { zoom: var(--k, 1); }
+/* --k is the screen scale factor set by src/scale.ts (1 up to 1440x810, gently larger above). */
+html { font-size: calc(16px * var(--k, 1)); }
+html.presenter { font-size: calc(20px * var(--k, 1)); }
+/* Icons are sized in px by lucide-react (designed for 18px text); scale them with the text. */
+svg.lucide { zoom: calc(var(--k, 1) * 0.9); }
 body {
   background: var(--paper);
   color: var(--ink);

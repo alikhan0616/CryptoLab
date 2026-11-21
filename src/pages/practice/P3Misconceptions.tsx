@@ -26,17 +26,17 @@ function FlipCard({ myth, fix, link, flipped, onFlip }: { myth: string; fix: str
     >
       <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d]" style={{ transform: flipped ? 'rotateY(180deg)' : 'none' }}>
         <div className="absolute inset-0 flex flex-col justify-between rounded border-2 border-line bg-panel p-4 [backface-visibility:hidden] group-hover:border-ink">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-wide text-bad">Myth</span>
+          <span className="text-[0.875rem] font-semibold uppercase tracking-wide text-bad">Myth</span>
           <span className="font-serif text-[1.2rem] leading-snug">"{myth}"</span>
-          <span className="text-[0.8rem] text-muted">Click to check</span>
+          <span className="text-[0.875rem] text-muted">Click to check</span>
         </div>
         <div className="absolute inset-0 flex flex-col justify-between rounded border-2 border-ok bg-panel p-4 [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <div>
             <span className="font-serif text-[1.5rem] font-semibold text-bad">No.</span>
-            <span className="ml-2 text-[0.82rem] leading-snug text-muted">"{myth}"</span>
+            <span className="ml-2 text-[0.875rem] leading-snug text-muted">"{myth}"</span>
           </div>
           <span className="text-[1.02rem] leading-snug">{fix}</span>
-          <Link to={link} onClick={(e) => e.stopPropagation()} className="self-start text-[0.85rem] underline">See it on the demo page</Link>
+          <Link to={link} onClick={(e) => e.stopPropagation()} className="self-start text-[0.875rem] underline">See it on the demo page</Link>
         </div>
       </div>
     </div>

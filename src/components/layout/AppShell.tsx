@@ -65,21 +65,21 @@ export function AppShell({ children }: { children: ReactNode }) {
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           )}
-          <div className="min-w-0 flex-1 truncate text-[0.85rem] text-muted">
+          <div className="min-w-0 flex-1 truncate text-[0.875rem] text-muted">
             {PAGES[index].code && <span className="mr-2 font-mono">{PAGES[index].code}</span>}
             {PAGES[index].title}
           </div>
           <button className="btn-icon" onClick={() => goPage(-1)} disabled={!prevPage} aria-label="Previous page" title="Previous page (Shift + Left)">
             <ChevronLeft size={20} />
           </button>
-          <span className="font-mono text-[0.8rem] tabular-nums text-muted" aria-label="Page number">
+          <span className="font-mono text-[0.875rem] tabular-nums text-muted" aria-label="Page number">
             {index + 1} / {PAGES.length}
           </span>
           <button className="btn-icon" onClick={() => goPage(1)} disabled={!nextPage} aria-label="Next page" title="Next page (Shift + Right)">
             <ChevronRight size={20} />
           </button>
           <button
-            className={`flex items-center gap-1.5 rounded border px-2.5 py-1 text-[0.8rem] ${presenter ? 'border-ink bg-ink text-paper' : 'border-line hover:border-ink'}`}
+            className={`flex items-center gap-1.5 rounded border px-2.5 py-1 text-[0.875rem] ${presenter ? 'border-ink bg-ink text-paper' : 'border-line hover:border-ink'}`}
             onClick={togglePresenter}
             aria-pressed={presenter}
             title="Presenter mode (P)"
@@ -88,7 +88,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </button>
         </header>
         <main id="main" className="flex-1 overflow-y-auto">
-          <div className="mx-auto max-w-[66.67rem] px-8 py-6">{children}</div>
+          <div className="mx-auto max-w-[75rem] px-8 py-6">{children}</div>
         </main>
       </div>
     </div>

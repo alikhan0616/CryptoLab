@@ -28,7 +28,7 @@ const KEYS = [
 export default function Home() {
   return (
     <div>
-      <p className="font-mono text-[0.8rem] text-muted">COMP3143 · Week 7 · Basic Cryptography · Easttom, Chapter 8</p>
+      <p className="font-mono text-[0.875rem] text-muted">COMP3143 · Week 7 · Basic Cryptography · Easttom, Chapter 8</p>
       <h1 className="mt-1 text-[2.8rem] leading-tight">CryptoLab</h1>
       <p className="mt-2 max-w-[56ch] text-[1.15rem] leading-relaxed text-muted">
         See how cryptography works, step by step. Every key, hash and ciphertext on these pages is computed for real, right here in the browser.
@@ -44,7 +44,7 @@ export default function Home() {
           <li key={stop.label} className="relative flex flex-col items-center text-center">
             <Link to={stop.to} className="group flex flex-col items-center">
               <span
-                className="z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 bg-paper font-mono text-[0.78rem] group-hover:bg-ink group-hover:text-paper"
+                className="z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 bg-paper font-mono text-[0.875rem] group-hover:bg-ink group-hover:text-paper"
                 style={{ borderColor: stop.color }}
               >
                 {i + 1}
@@ -56,7 +56,7 @@ export default function Home() {
                 const p = byCode(code)
                 return (
                   <li key={code}>
-                    <Link to={p.path} className="inline-flex items-center gap-1.5 text-[0.8rem] text-muted hover:text-ink hover:underline">
+                    <Link to={p.path} className="inline-flex items-center gap-1.5 text-[0.875rem] text-muted hover:text-ink hover:underline">
                       {p.category && <CategoryChip category={p.category} size={8} />}
                       {p.short ?? p.title}
                     </Link>
@@ -83,7 +83,7 @@ export default function Home() {
           <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-[0.9rem]">
             {KEYS.map(([k, v]) => (
               <div key={k} className="contents">
-                <dt className="font-mono text-[0.85rem]">{k}</dt>
+                <dt className="font-mono text-[0.875rem]">{k}</dt>
                 <dd className="text-muted">{v}</dd>
               </div>
             ))}

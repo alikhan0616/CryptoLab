@@ -54,9 +54,9 @@ export default function F1Why() {
         <Actor who="Alice" note="Teacher's office" />
         <div className="relative mt-6 h-[4.5rem] flex-1">
           <div className="absolute left-0 right-0 top-[1.4rem] border-t-2 border-dashed border-line" />
-          <div className="absolute -top-5 left-0 right-0 text-center text-[0.78rem] text-muted">Untrusted network</div>
+          <div className="absolute -top-5 left-0 right-0 text-center text-[0.875rem] text-muted">Untrusted network</div>
           <Mover arrived={sent} className="w-[16rem]">
-            <div className={`rounded border-2 bg-panel px-2.5 py-1.5 font-mono text-[0.85rem] leading-snug [overflow-wrap:anywhere] ${encrypted ? 'border-sym' : 'border-ink'}`}>
+            <div className={`rounded border-2 bg-panel px-2.5 py-1.5 font-mono text-[0.875rem] leading-snug [overflow-wrap:anywhere] ${encrypted ? 'border-sym' : 'border-ink'}`}>
               {encrypted && <Lock size={13} className="mr-1 inline text-sym" aria-label="Encrypted" />}
               {packetText}
             </div>
@@ -76,11 +76,11 @@ export default function F1Why() {
             initial={false}
             animate={{ opacity: s >= 2 ? 1 : 0.25 }}
           >
-            <div className="text-[0.78rem] font-semibold text-bad">Eve's notebook</div>
+            <div className="text-[0.875rem] font-semibold text-bad">Eve's notebook</div>
             {s >= 2 ? (
               <>
-                <div className="mt-1 font-mono text-[0.8rem] [overflow-wrap:anywhere]">{packetText}</div>
-                <div className="mt-1 text-[0.8rem]">
+                <div className="mt-1 font-mono text-[0.875rem] [overflow-wrap:anywhere]">{packetText}</div>
+                <div className="mt-1 text-[0.875rem]">
                   {encrypted
                     ? s >= 5
                       ? <>Unreadable. But she knows a <b>{enc.value?.size}-byte</b> packet went from Alice to Bob.</>
@@ -88,17 +88,17 @@ export default function F1Why() {
                     : <b className="text-bad">Fully readable!</b>}
                 </div>
               </>
-            ) : <div className="mt-1 text-[0.8rem] text-muted">(empty)</div>}
+            ) : <div className="mt-1 text-[0.875rem] text-muted">(empty)</div>}
           </motion.div>
         </div>
 
         <div className={`rounded border p-2.5 transition-opacity ${encrypted && s >= 1 ? 'border-sym opacity-100' : 'border-line opacity-0'}`}>
-          <div className="mb-1.5 flex items-center gap-2 text-[0.8rem]"><span className="font-semibold">Bob decrypts with</span> <KeyChip kind="shared" /></div>
+          <div className="mb-1.5 flex items-center gap-2 text-[0.875rem]"><span className="font-semibold">Bob decrypts with</span> <KeyChip kind="shared" /></div>
           <div className="font-mono text-[0.9rem] text-ok">{enc.value?.back}</div>
         </div>
 
         <div className={`rounded border border-line bg-paper p-2.5 transition-opacity ${s >= 3 ? 'opacity-100' : 'pointer-events-none opacity-0'}`}>
-          <div className="text-[0.85rem] font-semibold">Which security property do we need?</div>
+          <div className="text-[0.875rem] font-semibold">Which security property do we need?</div>
           <div className="mt-2 flex flex-col gap-1">
             {OPTIONS.map((o) => {
               const right = o === 'Confidentiality'
@@ -107,7 +107,7 @@ export default function F1Why() {
                 <button
                   key={o}
                   onClick={() => setPicked(o)}
-                  className={`flex items-center justify-between rounded border px-2.5 py-1 text-left text-[0.85rem] ${
+                  className={`flex items-center justify-between rounded border px-2.5 py-1 text-left text-[0.875rem] ${
                     show && right ? 'border-ok bg-ok/10' : show && picked === o ? 'border-bad bg-bad/10' : 'border-line bg-panel hover:border-ink'
                   }`}
                 >
@@ -118,7 +118,7 @@ export default function F1Why() {
               )
             })}
           </div>
-          {picked && <div className="mt-1.5 text-[0.8rem]">Confidentiality: only the right people can read it.</div>}
+          {picked && <div className="mt-1.5 text-[0.875rem]">Confidentiality: only the right people can read it.</div>}
         </div>
       </div>
     </div>

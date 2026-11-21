@@ -42,7 +42,7 @@ export function TechniqueLayout({ subtitle, idea, analogy, courseSays, goal, try
         <div aria-label="Try it" className="flex min-w-0 flex-col gap-3 border border-line bg-panel p-4">
           <div className="flex items-center justify-between">
             <h2 className="text-[1.3rem]">Try it</h2>
-            <button className="inline-flex items-center gap-1.5 text-[0.82rem] text-muted hover:text-ink" onClick={() => setResetKey((k) => k + 1)}>
+            <button className="inline-flex items-center gap-1.5 text-[0.875rem] text-muted hover:text-ink" onClick={() => setResetKey((k) => k + 1)}>
               <RotateCcw size={14} /> Reset demo
             </button>
           </div>

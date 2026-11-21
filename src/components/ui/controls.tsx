@@ -15,7 +15,7 @@ export function SegmentedControl<T extends string>({ label, options, value, onCh
           role="radio"
           aria-checked={value === o.value}
           onClick={() => onChange(o.value)}
-          className={`rounded-[3px] px-3 py-1 text-[0.85rem] ${value === o.value ? 'bg-ink text-paper' : 'text-ink hover:bg-line/50'}`}
+          className={`rounded-[3px] px-3 py-1 text-[0.875rem] ${value === o.value ? 'bg-ink text-paper' : 'text-ink hover:bg-line/50'}`}
         >
           {o.label}
         </button>
@@ -49,7 +49,7 @@ export function TextField({ label, value, onChange, mono, maxLength, width }: {
   width?: string
 }) {
   return (
-    <label className="flex flex-col gap-1 text-[0.8rem] text-muted" style={{ width }}>
+    <label className="flex flex-col gap-1 text-[0.875rem] text-muted" style={{ width }}>
       {label}
       <input
         value={value}
@@ -62,7 +62,7 @@ export function TextField({ label, value, onChange, mono, maxLength, width }: {
 }
 
 export function Button({ variant = 'outline', className = '', ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'solid' | 'outline' }) {
-  const base = 'inline-flex items-center gap-1.5 rounded px-3 py-1.5 text-[0.85rem] disabled:opacity-40 disabled:cursor-not-allowed'
+  const base = 'inline-flex items-center gap-1.5 rounded px-3 py-1.5 text-[0.875rem] disabled:opacity-40 disabled:cursor-not-allowed'
   const look = variant === 'solid' ? 'bg-ink text-paper hover:bg-ink/85' : 'border border-line bg-panel text-ink hover:border-ink'
   return <button {...rest} className={`${base} ${look} ${className}`} />
 }
@@ -72,8 +72,8 @@ export function DataBox({ label, children, tone }: { label?: string; children: R
   const color = tone === 'ok' ? 'var(--ok)' : tone === 'bad' ? 'var(--bad)' : 'var(--line)'
   return (
     <div>
-      {label && <div className="mb-1 text-[0.8rem] text-muted">{label}</div>}
-      <div className="rounded border bg-panel px-2.5 py-1.5 font-mono text-[0.85rem] leading-relaxed [overflow-wrap:anywhere]" style={{ borderColor: color }}>
+      {label && <div className="mb-1 text-[0.875rem] text-muted">{label}</div>}
+      <div className="rounded border bg-panel px-2.5 py-1.5 font-mono text-[0.875rem] leading-relaxed [overflow-wrap:anywhere]" style={{ borderColor: color }}>
         {children}
       </div>
     </div>
@@ -82,7 +82,7 @@ export function DataBox({ label, children, tone }: { label?: string; children: R
 
 export function TextArea({ label, value, onChange, rows = 2, mono }: { label: string; value: string; onChange: (v: string) => void; rows?: number; mono?: boolean }) {
   return (
-    <label className="flex flex-col gap-1 text-[0.8rem] text-muted">
+    <label className="flex flex-col gap-1 text-[0.875rem] text-muted">
       {label}
       <textarea
         value={value}
@@ -97,7 +97,7 @@ export function TextArea({ label, value, onChange, rows = 2, mono }: { label: st
 /** Labelled group used to put a SegmentedControl or other control under a small caption. */
 export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="flex flex-col gap-1 text-[0.8rem] text-muted">
+    <div className="flex flex-col gap-1 text-[0.875rem] text-muted">
       {label}
       <div className="text-ink">{children}</div>
     </div>
@@ -116,7 +116,7 @@ export function Verdict({ ok, children }: { ok: boolean; children: ReactNode }) 
 /** Small "Teaching version - not secure" label. */
 export function TeachingLabel() {
   return (
-    <span className="inline-flex items-center self-start rounded border border-asym px-2 py-0.5 text-[0.78rem] font-semibold uppercase tracking-wide text-asym">
+    <span className="inline-flex items-center self-start rounded border border-asym px-2 py-0.5 text-[0.875rem] font-semibold uppercase tracking-wide text-asym">
       Teaching version - not secure
     </span>
   )

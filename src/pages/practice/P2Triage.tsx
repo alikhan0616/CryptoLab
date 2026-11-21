@@ -51,7 +51,7 @@ export default function P2Triage() {
       <ol className="grid grid-cols-2 gap-4">
         {QUESTIONS.map((item, i) => (
           <li key={i} className="flex flex-col gap-2 border border-line bg-panel p-4">
-            <div className="font-mono text-[0.8rem] text-muted">Evidence {i + 1}</div>
+            <div className="font-mono text-[0.875rem] text-muted">Evidence {i + 1}</div>
             <p className="text-[1rem] font-medium leading-snug">{item.q}</p>
             <div className="flex flex-col gap-1.5">
               {item.options.map((o, j) => {

@@ -10,7 +10,7 @@ export function KeyChip({ kind, label, fingerprint }: { kind: Kind; label?: stri
   const text = label ?? (kind === 'shared' ? 'Shared key' : kind === 'public' ? 'Public key' : 'Private key')
   return (
     <span
-      className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border-2 px-2.5 py-0.5 text-[0.8rem] font-medium"
+      className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border-2 px-2.5 py-0.5 text-[0.875rem] font-medium"
       style={{ borderColor: color, background: solid ? color : 'var(--panel)', color: solid ? '#fff' : color }}
     >
       <Icon size={14} aria-hidden /> {text}

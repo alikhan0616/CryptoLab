@@ -9,8 +9,8 @@ import type { Step } from '../../components/viz/StepPlayer'
 function CertCard({ c, title, bad }: { c: Cert; title: string; bad?: boolean }) {
   const field = (k: string, v: string) => (
     <div className="flex min-w-0 flex-col">
-      <span className="text-[0.78rem] text-muted">{k}</span>
-      <span className="font-mono text-[0.82rem] [overflow-wrap:anywhere]">{v}</span>
+      <span className="text-[0.875rem] text-muted">{k}</span>
+      <span className="font-mono text-[0.875rem] [overflow-wrap:anywhere]">{v}</span>
     </div>
   )
   return (
@@ -47,14 +47,14 @@ function PkiDemo({ scenario, setScenario }: { scenario: Scenario; setScenario: (
   const checks = checkChain(scenario)
   return (
     <>
-      <p className="rounded border border-line bg-paper px-3 py-1.5 text-[0.85rem]">Simulated: simplified certificates. Real certificates use the X.509 format and real signatures.</p>
+      <p className="rounded border border-line bg-paper px-3 py-1.5 text-[0.875rem]">Simulated: simplified certificates. Real certificates use the X.509 format and real signatures.</p>
       <SegmentedControl label="Scenario" value={scenario} onChange={setScenario} options={SCENARIOS.map((s) => ({ value: s.id, label: s.label }))} />
       <div className="text-[0.88rem]">You visit <span className="font-mono font-semibold">https://{visitedDomain}</span>. The site sends this chain:</div>
       <div className="flex flex-col gap-1">
         <CertCard c={site} title="Website certificate" bad={!checks[0].pass || !checks[1].pass || !checks[2].pass} />
-        <span className="pl-4 text-[0.78rem] text-muted">↑ signed by</span>
+        <span className="pl-4 text-[0.875rem] text-muted">↑ signed by</span>
         <CertCard c={intermediate} title="Intermediate CA" bad={!checks[3].pass} />
-        <span className="pl-4 text-[0.78rem] text-muted">↑ signed by</span>
+        <span className="pl-4 text-[0.875rem] text-muted">↑ signed by</span>
         <CertCard c={root} title="Root CA" bad={!checks[4].pass} />
       </div>
       <Block title="What the browser checks">
@@ -67,7 +67,7 @@ function PkiDemo({ scenario, setScenario }: { scenario: Scenario; setScenario: (
           ))}
         </ul>
         <Result scenario={scenario} />
-        <p className="text-[0.8rem] text-muted">Trust store of this browser: {TRUST_STORE.join(', ')}</p>
+        <p className="text-[0.875rem] text-muted">Trust store of this browser: {TRUST_STORE.join(', ')}</p>
       </Block>
     </>
   )
@@ -91,7 +91,7 @@ function HowRender({ s, scenario }: { s: number; scenario: Scenario }) {
         <>
           <div className="flex flex-col items-center"><span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink font-serif text-[1.3rem] font-semibold">A</span>Alice</div>
           <span className="text-muted">encrypts to →</span>
-          <div className="rounded border-2 border-bad px-3 py-2 text-center">Public key labelled <b>"Bob"</b><div className="text-[0.85rem] text-bad">really Mallory's</div></div>
+          <div className="rounded border-2 border-bad px-3 py-2 text-center">Public key labelled <b>"Bob"</b><div className="text-[0.875rem] text-bad">really Mallory's</div></div>
           <span className="text-muted">→</span>
           <div className="flex flex-col items-center"><span className="flex h-12 w-12 items-center justify-center rounded-full bg-bad font-serif text-[1.3rem] font-semibold text-white">M</span>Mallory reads it</div>
         </>
@@ -99,7 +99,7 @@ function HowRender({ s, scenario }: { s: number; scenario: Scenario }) {
         <>
           <div className="flex flex-col items-center"><span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-asym font-serif font-semibold text-asym">CA</span>Certificate Authority</div>
           <span className="text-muted">signs →</span>
-          <div className="rounded border-2 border-asym px-3 py-2 font-mono text-[0.85rem]">Subject: bob.example.edu<br />Public key: a41f9c2e…<br />Signed: CA ✓</div>
+          <div className="rounded border-2 border-asym px-3 py-2 font-mono text-[0.875rem]">Subject: bob.example.edu<br />Public key: a41f9c2e…<br />Signed: CA ✓</div>
         </>
       )}
     </div>
@@ -107,7 +107,7 @@ function HowRender({ s, scenario }: { s: number; scenario: Scenario }) {
   const shown = s === 6 ? 5 : s - 1 // checks revealed so far (step 2 reveals check 1 ...)
   return (
     <div className="flex min-h-[12rem] flex-col gap-1.5 px-6 py-5">
-      <div className="text-[0.85rem] text-muted">Scenario: <b className="text-ink">{SCENARIOS.find((x) => x.id === scenario)?.label}</b></div>
+      <div className="text-[0.875rem] text-muted">Scenario: <b className="text-ink">{SCENARIOS.find((x) => x.id === scenario)?.label}</b></div>
       {[[0], [1], [2, 3], [4]].map((idx, row) => (
         <div key={row} className={`flex flex-col gap-0.5 transition-opacity ${row < shown ? '' : 'opacity-20'}`}>
           {idx.map((i) => (

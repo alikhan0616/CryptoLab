@@ -39,14 +39,14 @@ function HybridDemo() {
 
   const total = run ? run.pkg.wrappedKey.length + run.pkg.iv.length + run.pkg.ciphertext.length : 0
   const seg = (label: string, n: number, color: string) => (
-    <div className="flex min-w-[5.5rem] flex-col justify-center overflow-hidden px-2 py-1 text-[0.78rem] text-white" style={{ flexGrow: n, background: color }}>
+    <div className="flex min-w-[5.5rem] flex-col justify-center overflow-hidden px-2 py-1 text-[0.875rem] text-white" style={{ flexGrow: n, background: color }}>
       <b>{label}</b><span className="font-mono">{n} bytes</span>
     </div>
   )
 
   return (
     <>
-      <div className="flex items-center gap-2 text-[0.85rem]">
+      <div className="flex items-center gap-2 text-[0.875rem]">
         {bob ? <><KeyChip kind="public" label="Bob's public key" /><KeyChip kind="private" label="Bob's private key" /><span className="text-muted">RSA-2048, made on this page</span></> : <span className="text-muted">Generating Bob's RSA-2048 key pair...</span>}
       </div>
       <TextArea label={`Message (${utf8ToBytes(message).length} bytes: far too long for RSA alone, which takes 190)`} value={message} onChange={setMessage} rows={3} />
@@ -95,7 +95,7 @@ function Box({ big, color, children, label }: { big?: boolean; color: string; ch
         <Package size={big ? 52 : 34} strokeWidth={1.5} />
         <span className="absolute -bottom-1 -right-2 rounded-full bg-panel p-0.5" style={{ color }}>{children}</span>
       </div>
-      <span className="mt-0.5 whitespace-nowrap text-[0.78rem]">{label}</span>
+      <span className="mt-0.5 whitespace-nowrap text-[0.875rem]">{label}</span>
     </div>
   )
 }
@@ -121,7 +121,7 @@ function howRender(s: number) {
         <div className="flex flex-col items-center gap-1">
           <Actor who="Bob" size={44} />
           <KeyChip kind="private" label="Private key" />
-          {s === 4 && <><KeyChip kind="shared" label="Session key" /><span className="text-[0.85rem] text-ok">✓ data opened</span></>}
+          {s === 4 && <><KeyChip kind="shared" label="Session key" /><span className="text-[0.875rem] text-ok">✓ data opened</span></>}
         </div>
       </div>
       <div className="flex items-center gap-3">

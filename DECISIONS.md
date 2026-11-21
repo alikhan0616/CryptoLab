@@ -125,3 +125,12 @@ Section 1A of PLAN.md is the scope. This file records choices made while buildin
 - All 18 pages at 1366x768, 1920x1080, 2560x1440, 2560x1080 and 3440x1440: no horizontal overflow, nothing cut off, no console errors.
 - Every step of every animation stays fully visible above the pinned caption at 1366x768, 1920x1080 and 2560x1440, in normal and presenter mode, with and without reduce-motion.
 - Testing note: earlier "hidden step" failures were the test window being in the background (about 2 frames a second). Bringing it to the front fixed the measurements; only the HMAC case was real.
+
+## Smaller text (feedback: "everything looks zoomed in")
+
+- **Base text size is now 16px instead of the plan's 18px** (Section 4), and presenter mode is 20px instead of 22.5px. The plan's 18px felt too large on laptops and monitors.
+- **Large screens grow more gently:** the screen factor now adds only 55% of the extra size (`GROWTH` in `src/scale.ts`). Body text: 16px at 1366x768, about 16.6px on a 1080p laptop at 125% Windows scaling, 18.9px at 1920x1080 (was 24px), 22.8px at 2560x1440 (was 32px).
+- **The 14px minimum still holds:** every label that was 0.78–0.85rem is now 0.875rem (14px at the 16px base). Avatar letters also have a 14px minimum. Icons are zoomed with the text.
+- The content width limit is now 75rem (1200px at the 16px base).
+- Checked with Playwright at 1366x768, 1536x864, 1920x1080 and 2560x1440, normal and presenter mode: all 18 pages, no overflow, no text under 14px, the sidebar fits without scrolling, and every animation step stays fully visible above the caption.
+- To make everything a bit bigger or smaller later, change the two `font-size` lines in `src/styles/index.css`; to change how much large screens grow, change `GROWTH`.

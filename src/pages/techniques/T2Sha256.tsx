@@ -41,7 +41,7 @@ function Sha256Demo() {
         </div>
         <DataBox label="SHA-256 digest">{digest.value ? formatBytes(digest.value, fmt) : '...'}</DataBox>
         {reverse && <p className="text-[0.9rem] text-bad">Not possible. A hash is one way. The only attack is to guess inputs, hash each one and compare. That is why weak passwords are dangerous (next page: salting).</p>}
-        <div className="flex flex-col gap-1 text-[0.82rem]">
+        <div className="flex flex-col gap-1 text-[0.875rem]">
           <div className="flex items-center gap-2"><span className="w-24 text-muted">Input</span><div className="h-2.5 bg-keyless/40" style={{ width: `${Math.min(100, 4 + inBytes)}%` }} /><span className="font-mono">{inBytes} bytes</span></div>
           <div className="flex items-center gap-2"><span className="w-24 text-muted">Output</span><div className="h-2.5 bg-keyless" style={{ width: '36%' }} /><span className="font-mono">32 bytes, always</span></div>
         </div>
@@ -61,7 +61,7 @@ function Sha256Demo() {
           <p className="text-[1.05rem]"><b>{changed}</b> of 256 bits changed (<b>{Math.round((changed / 256) * 100)}%</b>)</p>
           <Button onClick={changeOne}>Change one character in B</Button>
         </div>
-        <p className="text-[0.85rem] text-muted">A tiny change to the input flips about half of the output bits. You cannot tell from two hashes how similar the inputs were.</p>
+        <p className="text-[0.875rem] text-muted">A tiny change to the input flips about half of the output bits. You cannot tell from two hashes how similar the inputs were.</p>
       </Block>
     </>
   )
@@ -92,12 +92,12 @@ function Rounds({ round }: { round: number }) {
   const names = 'abcdefgh'.split('')
   return (
     <div className="flex flex-col items-center gap-2">
-      <div className="font-mono text-[0.85rem] text-muted">Round {round} of 64</div>
+      <div className="font-mono text-[0.875rem] text-muted">Round {round} of 64</div>
       <div className="grid grid-cols-8 gap-1.5">
         {names.map((n, i) => (
           <div key={n} className="flex flex-col items-center rounded border border-keyless/50 bg-paper px-1.5 py-1">
-            <span className="text-[0.78rem] text-muted">{n}</span>
-            <span className="font-mono text-[0.85rem]">{words.value?.slice(i * 8, i * 8 + 8) ?? '........'}</span>
+            <span className="text-[0.875rem] text-muted">{n}</span>
+            <span className="font-mono text-[0.875rem]">{words.value?.slice(i * 8, i * 8 + 8) ?? '........'}</span>
           </div>
         ))}
       </div>
@@ -117,13 +117,13 @@ function HowRender({ s }: { s: number }) {
         </div>
       )}
       {s === 1 && (
-        <div className="grid grid-cols-16 gap-1 font-mono text-[0.8rem]" style={{ gridTemplateColumns: 'repeat(16, 2.1rem)' }}>
+        <div className="grid grid-cols-16 gap-1 font-mono text-[0.875rem]" style={{ gridTemplateColumns: 'repeat(16, 2.1rem)' }}>
           {Array.from(PAD.block).map((x, i) => {
             const kind = i < PAD.len ? 'msg' : i === PAD.len ? 'one' : i >= 56 ? 'len' : 'zero'
             const style = kind === 'msg' ? 'border-keyless bg-keyless/15' : kind === 'one' ? 'border-ink bg-hl' : kind === 'len' ? 'border-asym bg-asym/10' : 'border-line'
             return <span key={i} className={`rounded border py-0.5 text-center ${style}`}>{x.toString(16).padStart(2, '0')}</span>
           })}
-          <div className="col-span-16 mt-2 flex gap-4 font-sans text-[0.82rem]" style={{ gridColumn: '1 / -1' }}>
+          <div className="col-span-16 mt-2 flex gap-4 font-sans text-[0.875rem]" style={{ gridColumn: '1 / -1' }}>
             <span><span className="mr-1 inline-block h-3 w-3 border border-keyless bg-keyless/15" /> message</span>
             <span><span className="mr-1 inline-block h-3 w-3 border border-ink bg-hl" /> the 1 bit (0x80)</span>
             <span><span className="mr-1 inline-block h-3 w-3 border border-line" /> zeros</span>
@@ -156,8 +156,8 @@ function LabMirror() {
         <Button onClick={() => downloadFile('message_modified.txt', MODIFIED, 'text/plain')}>Download message_modified.txt</Button>
       </div>
       <p className="text-muted">The two files differ by one character ("." vs "!"). Their SHA-256 hashes, computed here:</p>
-      <div className="font-mono text-[0.82rem] break-all"><b>message.txt</b> {h1.value && bytesToHex(h1.value).toUpperCase()}</div>
-      <div className="font-mono text-[0.82rem] break-all"><b>message_modified.txt</b> {h2.value && bytesToHex(h2.value).toUpperCase()}</div>
+      <div className="font-mono text-[0.875rem] break-all"><b>message.txt</b> {h1.value && bytesToHex(h1.value).toUpperCase()}</div>
+      <div className="font-mono text-[0.875rem] break-all"><b>message_modified.txt</b> {h2.value && bytesToHex(h2.value).toUpperCase()}</div>
     </div>
   )
 }
