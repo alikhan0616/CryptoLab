@@ -1,0 +1,5 @@
+# CryptoLab
+
+> Interactive teaching app for COMP3143 Week 7, Basic Cryptography (Easttom, Computer Security Fundamentals, Chapter 8). The app itself is a JavaScript single-page app; all of its teaching content is also available as plain text.
+
+- [Study guide](https://cryptolab-nine.vercel.app/guide.md): every page's explanation, "Course says" facts, demo results, step-by-step animations, Lab 7 commands and activity answers

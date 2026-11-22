@@ -3,11 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CryptoLab</title>
+    <title>CryptoLab: interactive Week 7 cryptography</title>
+    <meta name="description" content="Interactive teaching app for COMP3143 Week 7, Basic Cryptography: Caesar, SHA-256, salting, HMAC, DES/3DES, AES, RSA, digital signatures, PKI and hybrid cryptography, with real in-browser demos. A plain-text study guide is at /guide.md." />
+    <link rel="alternate" type="text/markdown" href="/guide.md" title="CryptoLab study guide (plain text)" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect x=%272%27 y=%277%27 width=%2712%27 height=%278%27 rx=%271%27 fill=%27%230F766E%27/%3E%3Cpath d=%27M5 7V5a3 3 0 0 1 6 0v2%27 stroke=%27%2314171C%27 stroke-width=%271.6%27 fill=%27none%27/%3E%3C/svg%3E" />
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>CryptoLab</h1>
+      <p>An interactive teaching app for COMP3143 Week 7, Basic Cryptography (Easttom, Computer Security Fundamentals, Chapter 8). It needs JavaScript to run its live demos.</p>
+      <p><strong>Plain-text study guide with all the content:</strong> <a href="/guide.md">/guide.md</a></p>
+      <p>Pages: Why cryptography? &middot; Plaintext to ciphertext &middot; Encoding vs encryption vs hashing &middot; Symmetric vs asymmetric &middot; Caesar cipher &middot; SHA-256 hashing &middot; Salting passwords &middot; HMAC &middot; DES and 3DES &middot; AES &middot; RSA &middot; Digital signatures &middot; PKI and certificates &middot; Hybrid cryptography &middot; Activity 1: choose the right tool &middot; Activity 2: cryptographic triage &middot; Misconceptions.</p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

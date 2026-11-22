@@ -61,6 +61,12 @@ Hash-based page URLs (`#/techniques/aes`) mean refreshing or sharing any page wo
 
 Teammates who want to change something: clone the repo, run `npm install` and `npm run dev`, make the change, run `npm test`, then push a branch and open a pull request.
 
+## Plain-text study guide
+
+The app is a JavaScript single-page app, so tools that don't run JavaScript (AI assistants, search engines) see an empty page. All of its teaching content is also in [`public/guide.md`](public/guide.md), served at **https://cryptolab-nine.vercel.app/guide.md**. Give that link to Claude or any other AI to have it explain the project. `/llms.txt` points AI tools to it.
+
+When you change a page's text, update `public/guide.md` too. `npm test` fails if a page is missing from the guide or its "Course says" lines no longer match.
+
 ## Notes
 
 - Teaching-only versions (Toy RSA, ECB mode) are labelled "Teaching version - not secure".
